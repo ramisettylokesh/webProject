@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="createButton" (click) = "editUserData(-1,-1)">Create</button>
+        </div>
+        <div class="col-sm-12 m-t-15">
+            <pagination-controls (pageChange)="p = $event" id = 'userDetails' previousLabel=""
+            nextLabel=""></pagination-controls>
+          </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>User Name</th>
+                    <th>User ID</th>
+                    <th>Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let user of usersDetails | paginate: { id:'userDetails', itemsPerPage: 8, currentPage: p };let i = index">
+                    <td>{{user.userName}}</td>
+                    <td>{{user.userId}}</td>
+                    <td>{{user.password}}</td>
+                    <td>
+                        <button class="editButton" (click) = "editUserData(user.id,i)">Edit</button>
+                    </td>
+                    <td>
+                        <button class="deleteButton" (click) = "deleteFile(i)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<p-dialog [(visible)]="display" modal="modal" dismissableMask="true">
+    <p-header>
+       {{dialogHeader}}
+    </p-header>
+      <div>
+        <label for="domain">User Name</label>
+        <input type="text" class="filedStyle" [(ngModel)] = "userName">
+      </div>
+      <div>
+        <label for="format1">User ID</label>
+        <input type="text" class="filedStyle" [disabled] = "dialogHeader == 'Update User Information'" [(ngModel)] = "userId">
+      </div>
+      <div>
+        <label for="format1">Password</label>
+        <input type="text" class="filedStyle" [(ngModel)] = "password">
+      </div>
+    <p-footer>
+        <button class="startButton" 
+        [ngClass] = "{startDisableButton : userName == '' || userId == '' || password == ''}" 
+        [disabled] ="userName == '' || userId == '' || password == '' "
+        (click) = "addUser()">save</button>
+        <button class="closeButton" (click) = "closeDialog()">Cancel</button>
+    </p-footer>
+  </p-dialog> 

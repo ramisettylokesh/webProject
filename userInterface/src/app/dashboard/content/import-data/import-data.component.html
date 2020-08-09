@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>File List</h3>
+        </div>
+        <div class="col-sm-12">
+            <button class="deleteButton" (click) = "deleteAllChecked()">Delete all checked</button>
+        </div>
+        <div class="col-sm-12 m-t-15">
+          <pagination-controls (pageChange)="p = $event" id = 'importData' previousLabel=""
+          nextLabel=""></pagination-controls>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th><p-checkbox (onChange) = "checkAllFiles($event)"></p-checkbox></th>
+                    <th>Name</th>
+                    <th>Import data</th>
+                    <th>Uploaded on</th>
+                    <th>Uploaded by</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let file of importFileData | paginate: { id:'importData', itemsPerPage: 8, currentPage: p };let i = index">
+                    <td><p-checkbox [(ngModel)]="file.checked" [binary]="true"></p-checkbox></td>
+                    <td>{{file.name}}</td>
+                    <td>
+                        <button class="importButton">Import data</button>
+                    </td>
+                    <td>{{file.uploadedTime}}</td>
+                    <td>{{file.uploadedBy}}</td>
+                    <td>
+                        <button class="deleteButton" (click) = "deleteFile(i)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+    </div>
+</div>

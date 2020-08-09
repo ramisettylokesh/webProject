@@ -1,0 +1,70 @@
+.deleteButton{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+.deleteButton:focus{
+    outline: none;
+}
+.m-t-15{
+    margin-top: 15px;
+}
+.createButton{
+    border: none;
+    width: 125px;
+    height: 35px;
+    background-color: #4CAF50;
+    color: white;
+}
+.createButton:focus{
+    outline: none;
+}
+.editButton{
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+}
+.editButton:focus{
+    outline: none;
+}
+.filedStyle{
+    width: 100%;
+    height: 35px;
+}
+label{
+    margin-top: 10px;
+}
+.startButton{
+    background-color: red;
+    color: white;
+    border: none;
+    width: 90px !important;
+    height: 30px;
+}
+.closeButton{
+    background-color: gray;
+    color: white;
+    border: none;
+    width: 90px !important;
+    height: 30px;
+}
+button:focus{
+    outline: none;
+}
+.startDisableButton{
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+input:focus{
+    outline: none;
+}
+:host ::ng-deep .ngx-pagination li{
+    border: 1px solid black;
+    margin-right: 0px;
+    border-right: none;
+}
+:host ::ng-deep .ngx-pagination li:last-child{
+    border-right: 1px solid black;
+}

@@ -1,0 +1,41 @@
+:host ::ng-deep .table th, .table td{
+    padding: 9px;
+    text-align: center;
+}
+:host ::ng-deep .ui-chkbox .ui-chkbox-box{
+    width: 15px;
+    height: 15px;
+    margin-top: 3px;
+}
+.m-t-15{
+    margin-top: 15px;
+}
+.deleteButton{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+.deleteButton:focus{
+    outline: none;
+}
+.importButton{
+    background-color: #2d8a2d;
+    color: white;
+    border: 1px solid #2d8a2d;
+    border-radius: 5px;
+}
+.importButton:focus{
+    outline: none;
+}
+:host ::ng-deep .ui-chkbox .ui-chkbox-box .ui-chkbox-icon{
+font-size: 14px;
+}
+:host ::ng-deep .ngx-pagination li{
+    border: 1px solid black;
+    margin-right: 0px;
+    border-right: none;
+}
+:host ::ng-deep .ngx-pagination li:last-child{
+    border-right: 1px solid black;
+}

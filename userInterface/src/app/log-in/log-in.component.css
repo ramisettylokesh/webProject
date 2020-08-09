@@ -1,0 +1,48 @@
+#loginBG{
+    background-image: linear-gradient(#7ddee4, #ffffff, #7ddee4);
+    height: 100vh;
+}
+h3{
+    color: #ffffff;
+}
+.d-flex{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.loginSection{
+    background-color: #61d8dc;
+    padding: 20px;
+}
+hr{
+    background-color: #ffffff;
+    height: 1px;
+}
+#containerWidth{
+    width: 400px;
+}
+.f-c-white{
+    color: #ffffff;
+}
+.w-100{
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 5px 5px 4px 0px grey;
+}
+.p-8-0{
+    padding: 5px 0px;
+}
+.buttonClass{
+    padding: 35px 0px 15px;
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+.loginButton{
+    width: 125px;
+    height: 40px;
+    background-color: #329998;
+    border: none;
+}

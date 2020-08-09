@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Leads List</h3>
+        </div>
+        <div class="col-sm-12">
+            <select style="width: 150px;" (change) = "dropDownSelection($event.target.value)">
+                <option value="0">Select</option>
+                <option value="sendToQC">Send to QC</option>
+                <option value="delete">Delete</option>
+            </select>
+            <button class="buttonSelection" (click) = "dropDownAction()">Go</button>
+        </div>
+        <div>
+          <div class="col-sm-12 m-t-15">
+            <pagination-controls id = "viewLead" (pageChange)="p = $event" previousLabel=""
+            nextLabel=""></pagination-controls>
+          </div>
+        </div>
+        <div class="col-sm-12 table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th><p-checkbox (onChange) = "checkAllFiles($event)"></p-checkbox></th>
+                    <th>ID</th>
+                    <th>Company Name</th>
+                    <th>Created by</th>
+                    <th>Uploaded on</th>
+                    <th>Created on</th>
+                    <th>Lead full name</th>
+                    <th>Lead first name</th>
+                    <th>Lead middle name</th>
+                    <th>Lead last name</th>
+                    <th>email1</th>
+                    <th>email2</th>
+                    <th>email3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let lead of leadsList | paginate: { id : 'viewLead', itemsPerPage: 5, currentPage: p };let i = index">
+                    <td><p-checkbox [(ngModel)]="lead.checked" [binary]="true"></p-checkbox></td>
+                    <td>{{lead.id}}</td>
+                    <td (click) = "openDomainDialog(lead.company)" class="companyName">
+                        {{lead.company}}
+                    </td>
+                    <td>{{lead.createdBy}}</td>
+                    <td>{{lead.uploadedOn}}</td>
+                    <td>
+                        {{lead.createdOn}}
+                    </td>
+                    <td>{{lead.leadFullName}}</td>
+                    <td>{{lead.leadFirstName}}</td>
+                    <td>{{lead.leadMiddleName}}</td>
+                    <td>{{lead.leadLastName}}</td>
+                    <td>{{lead.email1}}</td>
+                    <td>{{lead.email2}}</td>
+                    <td>{{lead.email3}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<p-dialog [(visible)]="display" modal="modal" dismissableMask="true">
+  <p-header>
+     {{dialogHeader}}
+  </p-header>
+    <div>
+      <label for="domain">Domain</label>
+      <input type="text" class="filedStyle" [(ngModel)] = "domainName">
+    </div>
+    <div>
+      <label for="format1">Format1</label>
+      <select name="format1" id="format1" class="filedStyle" [(ngModel)] = "format1">
+        <option *ngFor = "let value of formatType" [value]="value.name" 
+        [disabled] ="format2 == value.name || format3 == value.name">{{value.value}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="format2">Format2</label>
+      <select name="format2" id="format2" class="filedStyle" [(ngModel)] = "format2">
+        <option *ngFor = "let value of formatType" [value]="value.name" 
+        [disabled] ="format1 == value.name || format3 == value.name">{{value.value}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="format3">Format3</label>
+      <select name="format3" id="format3" class="filedStyle" [(ngModel)] = "format3">
+        <option *ngFor = "let value of formatType" [value]="value.name" 
+        [disabled] ="format2 == value.name || format1 == value.name">{{value.value}}</option>
+      </select>
+    </div>
+  <p-footer>
+      <button class="startButton" 
+      [ngClass] = "{startDisableButton : domainName == '' || format1 == '' || format2 == '' || format3 == ''}" 
+      [disabled] ="domainName == '' || format1 == '' || format2 == '' || format3 == '' "
+      (click) = "addDomain()">Start</button>
+      <button class="closeButton" (click) = "closeDialog()">Close</button>
+  </p-footer>
+</p-dialog> 

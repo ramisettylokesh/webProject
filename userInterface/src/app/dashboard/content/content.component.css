@@ -1,0 +1,21 @@
+:host ::ng-deep .ui-tabview .ui-tabview-panels{
+    border: none;
+    padding: 15px;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top{
+    margin-top: 10px;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li{
+    margin-right: 10px;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active{
+    background-color: #7ddee4;
+    border: 1px solid #7ddee4;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li:focus{
+    box-shadow: none;
+}
+:host ::ng-deep .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover{
+    border: 1px solid #63c7ce;
+    background-color: #63c7ce;
+}

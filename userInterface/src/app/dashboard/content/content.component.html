@@ -1,0 +1,23 @@
+<p-tabView>
+    <p-tabPanel header="Upload Data" *ngIf = "userData.role == 'Admin'">
+       Content 1
+    </p-tabPanel>
+    <p-tabPanel header="Import Data">
+       <app-import-data></app-import-data>
+    </p-tabPanel>
+    <p-tabPanel header="View Leads">
+        <app-view-leads></app-view-leads>
+    </p-tabPanel>
+    <p-tabPanel header="City wise">
+        Content 4
+     </p-tabPanel>
+     <p-tabPanel header="Filter">
+         Content 5
+     </p-tabPanel>
+     <p-tabPanel header="QC" *ngIf = "userData.role == 'Admin'">
+        <app-quality></app-quality>
+     </p-tabPanel>
+     <p-tabPanel header="User Details" *ngIf = "userData.role == 'Admin'">
+        <app-user-details></app-user-details>
+    </p-tabPanel>
+</p-tabView>
